@@ -2,7 +2,7 @@
 Proiect TSS
 @ Vilvoi David-Leonard
   grupa 311
-
+'''
 # Teste generate de Microsoft Copilot:
 
 def test_pub_class():
@@ -80,3 +80,4 @@ class TestPub(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
+'''
