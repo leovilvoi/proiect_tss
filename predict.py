@@ -49,8 +49,12 @@ print("Accuracy: ", accuracy_score(y_test, y_pred))
 
 def predict_outcome(tranzactii, produs, cantitate):
     item_encoded = le.transform([produs])[0]
-    profit = model.predict([[tranzactii, item_encoded, cantitate]])
-    return "Profitable" if profit[0] == 1 else "Deloc profitabil"
-
+    sales = tranzactii * Pub().prices[produs] * cantitate
+    if sales >= 1200:
+        profit = model.predict([[tranzactii, item_encoded, cantitate]])
+        return "Profitabil" if profit[0] == 1 else "Deloc profitabil"
+    else:
+        return "Deloc profitabil"
+        
 print(predict_outcome(5, 'breakfast', 50))
 # print(predict_outcome(1, 'inexistent', 10))
